@@ -1,0 +1,95 @@
+AI Fashion Assistant - Architecture Explanation
+
+1. User Query
+
+The user enters a natural language fashion request such as:
+
+"I need a formal outfit for an interview."
+
+2. User Understanding Module
+
+The system analyzes the query and extracts:
+
+- Gender
+- Occasion
+- Style Preferences
+
+Example:
+
+Input:
+"I am a 22 year old male looking for a formal outfit for an interview"
+
+Output:
+Gender: Men
+Occasion: Office
+Style: Formal
+
+3. Fashion Product Dataset
+
+The system loads fashion products from products.csv containing:
+
+- Product Name
+- Category
+- Gender
+- Occasion
+- Metadata
+- Product Images
+
+4. Semantic Embedding Generation
+
+Product information is converted into vector embeddings using:
+
+Sentence Transformers
+(all-MiniLM-L6-v2)
+
+This enables semantic understanding of fashion products.
+
+5. FAISS Vector Search
+
+Embeddings are indexed using FAISS.
+
+User queries are converted into embeddings and matched against fashion product embeddings to retrieve semantically relevant items.
+
+6. Outfit Compatibility Engine
+
+The compatibility engine selects matching:
+
+- Topwear
+- Bottomwear
+- Footwear
+- Accessories
+
+based on:
+
+- Gender
+- Occasion
+- Product Categories
+- Fashion Compatibility Rules
+
+7. Explainability Module
+
+The system generates reasoning explaining why the selected outfit works for the user's requirements.
+
+8. Streamlit User Interface
+
+The final recommendation is displayed through a Streamlit web application with:
+
+- Product Images
+- Outfit Components
+- Recommendation Reasoning
+
+System Flow
+
+User Query
+      ↓
+User Understanding
+      ↓
+Semantic Embeddings
+      ↓
+FAISS Vector Search
+      ↓
+Outfit Compatibility Engine
+      ↓
+Explainability Module
+      ↓
+Streamlit User Interface
