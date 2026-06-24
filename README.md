@@ -122,3 +122,15 @@ along with explainable reasoning.
 
 
 
+
+
+
+
+\## System Architecture
+
+
+
+!\[Architecture](architecture.png)
+
+
+
